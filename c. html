@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Access</title>
+</head>
+<body>
+    <script>
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const video = document.createElement('video');
+                video.srcObject = stream;
+                video.autoplay = true;
+                document.body.appendChild(video);
+            } catch (err) {
+                console.error("Error accessing camera: ", err);
+            }
+        }
+        startCamera();
+    </script>
+</body>
+</html>
